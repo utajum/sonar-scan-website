@@ -91,6 +91,42 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
     <main id="main-content">
       <slot />
     </main>
+
+    <!-- Screenshot lightbox dialog -->
+    <dialog id="lightbox" aria-label="Screenshot preview">
+      <img id="lightbox-img" src="" alt="" />
+    </dialog>
+
+    <script>
+      const dialog = document.getElementById('lightbox') as HTMLDialogElement;
+      const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+
+      document.querySelectorAll<HTMLImageElement>('[data-lightbox]').forEach((img) => {
+        img.addEventListener('click', () => {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          dialog.showModal();
+        });
+      });
+
+      // Close on backdrop click
+      dialog.addEventListener('click', (e) => {
+        if (e.target === dialog) {
+          dialog.close();
+        }
+      });
+
+      // Close on image click too
+      lightboxImg.addEventListener('click', () => {
+        dialog.close();
+      });
+
+      // Close on Escape (native dialog behavior, but ensure cleanup)
+      dialog.addEventListener('close', () => {
+        lightboxImg.src = '';
+      });
+    </script>
+
     <PostHog />
   </body>
 </html>
@@ -151,5 +187,49 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Lightbox Dialog ── */
+  #lightbox {
+    border: none;
+    background: transparent;
+    padding: 0;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: visible;
+    outline: none;
+  }
+
+  #lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  #lightbox[open] {
+    animation: lightbox-in 0.3s ease forwards;
+  }
+
+  #lightbox-img {
+    display: block;
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 255, 255, 0.1);
+    cursor: pointer;
+    transform: scale(1.15);
+  }
+
+  @keyframes lightbox-in {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 </style>

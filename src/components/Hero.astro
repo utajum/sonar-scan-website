@@ -23,7 +23,7 @@ import screenshotBanner from '../assets/images/screenshot-banner.png';
         </div>
       </div>
       <div class="hero-visual">
-        <Image src={screenshotBanner} alt="sonar-scan interactive terminal menu showing ASCII art banner and operation selection" class="hero-screenshot" fetchpriority="high" loading="eager" format="webp" quality={85} />
+        <Image src={screenshotBanner} alt="sonar-scan interactive terminal menu showing ASCII art banner and operation selection" class="hero-screenshot" fetchpriority="high" loading="eager" format="webp" quality={85} data-lightbox />
       </div>
     </div>
 
@@ -168,6 +168,13 @@ import screenshotBanner from '../assets/images/screenshot-banner.png';
     border-radius: var(--radius);
     box-shadow: 0 12px 40px rgba(0, 255, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.5);
     border: 1px solid var(--border-dark);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hero-screenshot:hover {
+    transform: scale(1.05);
+    box-shadow: 0 16px 50px rgba(0, 255, 255, 0.15), 0 8px 20px rgba(0, 0, 0, 0.6);
   }
 
   .terminal {

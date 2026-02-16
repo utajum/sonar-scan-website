@@ -12,17 +12,17 @@ import screenshotBanner from '../assets/images/screenshot-banner.png';
 
     <div class="showcase-grid">
       <div class="showcase-item">
-        <Image src={screenshotInstall} alt="One-line curl install with ASCII art install banner" loading="lazy" format="webp" quality={85} />
+        <Image src={screenshotInstall} alt="One-line curl install with ASCII art install banner" loading="lazy" format="webp" quality={85} data-lightbox />
         <h3>One-line install</h3>
         <p>Pipe the installer from GitHub. It deploys <code>sonar-scan</code> to <code>/usr/local/bin</code> with zero friction.</p>
       </div>
       <div class="showcase-item">
-        <Image src={screenshotScan} alt="Terminal showing scan progress with colored status messages" loading="lazy" format="webp" quality={85} />
+        <Image src={screenshotScan} alt="Terminal showing scan progress with colored status messages" loading="lazy" format="webp" quality={85} data-lightbox />
         <h3>Full scan pipeline</h3>
         <p>Docker check, SonarQube deploy, auth, purge old data, scan, deliver results. All automated.</p>
       </div>
       <div class="showcase-item">
-        <Image src={screenshotBanner} alt="Interactive retro terminal menu with ASCII art" loading="lazy" format="webp" quality={85} />
+        <Image src={screenshotBanner} alt="Interactive retro terminal menu with ASCII art" loading="lazy" format="webp" quality={85} data-lightbox />
         <h3>Interactive menu</h3>
         <p>Run without arguments for a retro-styled interactive menu. Choose scan, download issues, or exit.</p>
       </div>
@@ -48,6 +48,13 @@ import screenshotBanner from '../assets/images/screenshot-banner.png';
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     margin-bottom: 1.25rem;
     border: 1px solid var(--border-dark);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .showcase-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.15), 0 4px 20px rgba(0, 0, 0, 0.5);
   }
 
   .showcase-item h3 {
