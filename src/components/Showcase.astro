@@ -1,3 +1,9 @@
+---
+import { Image } from 'astro:assets';
+import screenshotInstall from '../assets/images/screenshot-install.png';
+import screenshotScan from '../assets/images/screenshot-scan.png';
+import screenshotBanner from '../assets/images/screenshot-banner.png';
+---
 <!-- What it does: screenshot showcase grid -->
 <section class="section section-dark">
   <div class="container">
@@ -6,17 +12,17 @@
 
     <div class="showcase-grid">
       <div class="showcase-item">
-        <img src="/screenshot-install.png" alt="One-line curl install with ASCII art install banner" loading="lazy" />
+        <Image src={screenshotInstall} alt="One-line curl install with ASCII art install banner" loading="lazy" format="webp" quality={85} />
         <h3>One-line install</h3>
         <p>Pipe the installer from GitHub. It deploys <code>sonar-scan</code> to <code>/usr/local/bin</code> with zero friction.</p>
       </div>
       <div class="showcase-item">
-        <img src="/screenshot-scan.png" alt="Terminal showing scan progress with colored status messages" loading="lazy" />
+        <Image src={screenshotScan} alt="Terminal showing scan progress with colored status messages" loading="lazy" format="webp" quality={85} />
         <h3>Full scan pipeline</h3>
         <p>Docker check, SonarQube deploy, auth, purge old data, scan, deliver results. All automated.</p>
       </div>
       <div class="showcase-item">
-        <img src="/screenshot-banner.png" alt="Interactive retro terminal menu with ASCII art" loading="lazy" />
+        <Image src={screenshotBanner} alt="Interactive retro terminal menu with ASCII art" loading="lazy" format="webp" quality={85} />
         <h3>Interactive menu</h3>
         <p>Run without arguments for a retro-styled interactive menu. Choose scan, download issues, or exit.</p>
       </div>

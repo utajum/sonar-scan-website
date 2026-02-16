@@ -1,3 +1,7 @@
+---
+import { Image } from 'astro:assets';
+import screenshotBanner from '../assets/images/screenshot-banner.png';
+---
 <!-- Hero section with install terminal typing animation -->
 <section class="hero">
   <div class="container">
@@ -8,18 +12,18 @@
         <p class="subtitle">A zero-configuration SonarQube wrapper. Run a single command, get a full code quality report. No setup wizards needed.</p>
 
         <div class="hero-buttons">
-          <a href="https://github.com/utajum/sonar-scanner" class="btn btn-primary" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/utajum/sonar-scanner" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             View on GitHub
           </a>
-          <a href="https://buymeacoffee.com/utajum" class="btn btn-outline" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 884 1279" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M791 298c-1-4-2-7-4-10-3-5-7-8-12-11-4-2-8-3-13-3H121c-5 0-9 1-13 3-5 3-9 6-12 11-2 3-3 6-4 10l-1 5-77 620c-6 49 7 98 37 137s74 63 123 67h1l6 1h459c50 0 97-22 130-60 32-38 47-87 41-136l-77-627-1-5v-2zm-72 622c3 26-4 51-21 71s-42 31-68 31H253l-4-1c-25-2-49-14-64-35s-22-46-19-71l74-594h444l57 460 18 139z"/><path d="M670 395H213l-49 393c-4 33 5 66 26 92s52 43 83 47h1l3 1h327c34 0 65-15 87-41s33-58 27-91l-48-401zm-31 48l45 372c4 22-3 45-18 61s-36 28-59 28H280l-2-1c-21-2-40-13-54-31s-20-40-17-62l42-337h2l388-30z"/><path d="M286 225c-2-2-3-6-3-9 0-4 1-7 3-9l48-75c5-7 5-16 2-24s-11-14-19-16l-7-1c-6 0-12 2-16 6l-80 124c-3 4-4 8-4 12 0 5 2 9 5 13 3 3 7 5 12 6h13c6 0 12-2 16-6l26-17 4-4zm152 0c-2-2-3-6-3-9 0-4 1-7 3-9l48-75c5-7 5-16 2-24s-11-14-19-16l-7-1c-6 0-12 2-16 6l-80 124c-3 4-4 8-4 12 0 5 2 9 5 13 3 3 7 5 12 6h13c6 0 12-2 16-6l26-17 4-4zm152 0c-2-2-3-6-3-9 0-4 1-7 3-9l48-75c5-7 5-16 2-24s-11-14-19-16l-7-1c-6 0-12 2-16 6l-80 124c-3 4-4 8-4 12 0 5 2 9 5 13 3 3 7 5 12 6h13c6 0 12-2 16-6l26-17 4-4z"/></svg>
+          <a href="https://buymeacoffee.com/utajum" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 884 1279" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M791 298c-1-4-2-7-4-10-3-5-7-8-12-11-4-2-8-3-13-3H121c-5 0-9 1-13 3-5 3-9 6-12 11-2 3-3 6-4 10l-1 5-77 620c-6 49 7 98 37 137s74 63 123 67h1l6 1h459c50 0 97-22 130-60 32-38 47-87 41-136l-77-627-1-5v-2zm-72 622c3 26-4 51-21 71s-42 31-68 31H253l-4-1c-25-2-49-14-64-35s-22-46-19-71l74-594h444l57 460 18 139z"/><path d="M670 395H213l-49 393c-4 33 5 66 26 92s52 43 83 47h1l3 1h327c34 0 65-15 87-41s33-58 27-91l-48-401zm-31 48l45 372c4 22-3 45-18 61s-36 28-59 28H280l-2-1c-21-2-40-13-54-31s-20-40-17-62l42-337h2l388-30z"/><path d="M286 225c-2-2-3-6-3-9 0-4 1-7 3-9l48-75c5-7 5-16 2-24s-11-14-19-16l-7-1c-6 0-12 2-16 6l-80 124c-3 4-4 8-4 12 0 5 2 9 5 13 3 3 7 5 12 6h13c6 0 12-2 16-6l26-17 4-4zm152 0c-2-2-3-6-3-9 0-4 1-7 3-9l48-75c5-7 5-16 2-24s-11-14-19-16l-7-1c-6 0-12 2-16 6l-80 124c-3 4-4 8-4 12 0 5 2 9 5 13 3 3 7 5 12 6h13c6 0 12-2 16-6l26-17 4-4zm152 0c-2-2-3-6-3-9 0-4 1-7 3-9l48-75c5-7 5-16 2-24s-11-14-19-16l-7-1c-6 0-12 2-16 6l-80 124c-3 4-4 8-4 12 0 5 2 9 5 13 3 3 7 5 12 6h13c6 0 12-2 16-6l26-17 4-4z"/></svg>
             Buy me a coffee
           </a>
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/screenshot-banner.png" alt="sonar-scan interactive terminal menu showing ASCII art banner and operation selection" class="hero-screenshot" />
+        <Image src={screenshotBanner} alt="sonar-scan interactive terminal menu showing ASCII art banner and operation selection" class="hero-screenshot" fetchpriority="high" loading="eager" format="webp" quality={85} />
       </div>
     </div>
 
@@ -32,8 +36,8 @@
         </div>
         <span class="terminal-label">Terminal</span>
         <button class="copy-btn" id="copyBtn" aria-label="Copy to clipboard">
-          <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><polyline points="20 6 9 17 4 12"/></svg>
         </button>
       </div>
       <div class="terminal-body">
@@ -140,7 +144,7 @@
   }
 
   .tagline {
-    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
     font-size: 0.85rem;
     color: var(--neon-purple);
     letter-spacing: 0.15em;
@@ -227,7 +231,7 @@
   }
 
   .terminal-body code {
-    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
     font-size: 0.85rem;
     color: var(--text-primary);
     line-height: 1.8;
@@ -242,7 +246,7 @@
   .cursor {
     display: inline;
     color: var(--neon-green);
-    font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
     font-size: 0.85rem;
     animation: blink-fade 1s step-end infinite;
   }

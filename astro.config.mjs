@@ -10,15 +10,5 @@ export default defineConfig({
   output: "static",
   integrations: [sitemap()],
 
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          entryFileNames: "[name].js",
-        },
-      },
-    },
-  },
-
   adapter: netlify(),
 });

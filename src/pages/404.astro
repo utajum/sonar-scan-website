@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <section class="error-page">
+    <div class="container">
+      <p class="error-code">404</p>
+      <h1>Page not found</h1>
+      <p class="error-desc">The page you're looking for doesn't exist or has been moved.</p>
+      <a href="/" class="btn btn-primary">Back to home</a>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--neon-cyan);
+    color: #0d1117;
+  }
+
+  .btn-primary:hover {
+    background: #33ffff;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  }
+</style>
+
+<style>
+  .error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-deep);
+  }
+
+  .error-code {
+    font-size: 8rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    margin: 0;
+    line-height: 1;
+    opacity: 0.3;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 0.5rem 0 1rem;
+  }
+
+  .error-desc {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin: 0 0 2rem;
+  }
+</style>

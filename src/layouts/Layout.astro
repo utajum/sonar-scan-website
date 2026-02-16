@@ -15,6 +15,9 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Preconnect to analytics -->
+    <link rel="preconnect" href="https://us.i.posthog.com" />
+
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content="utajum" />
     <link rel="canonical" href={siteUrl} />
@@ -24,16 +27,13 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
       name="description"
       content="Zero-configuration SonarQube wrapper for effortless code scanning. Auto-deploys SonarQube in Docker, handles authentication, purges old data, and delivers vulnerability reports. One command, full results."
     />
-    <meta
-      name="keywords"
-      content="sonarqube, sonar-scan, code vulnerability, static analysis, code quality, docker, bash, cli, security scanner, sonar-scanner, devops, linux"
-    />
+
 
     <!-- OpenGraph -->
     <meta property="og:title" content="sonar-scan | Zero-Config Code Vulnerability Scanner" />
     <meta
       property="og:description"
-      content="Zero-configuration SonarQube wrapper. Auto-deploys SonarQube in Docker, scans your codebase, delivers vulnerability reports. One command, full results."
+      content="Zero-configuration SonarQube wrapper for effortless code scanning. Auto-deploys SonarQube in Docker, handles authentication, purges old data, and delivers vulnerability reports. One command, full results."
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
@@ -50,7 +50,7 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
     <meta name="twitter:title" content="sonar-scan | Zero-Config Code Vulnerability Scanner" />
     <meta
       name="twitter:description"
-      content="Zero-configuration SonarQube wrapper. Auto-deploys SonarQube in Docker, scans your codebase, delivers vulnerability reports. One command, full results."
+      content="Zero-configuration SonarQube wrapper for effortless code scanning. Auto-deploys SonarQube in Docker, handles authentication, purges old data, and delivers vulnerability reports. One command, full results."
     />
     <meta name="twitter:image" content={`${siteUrl}/og-image.png`} />
     <meta name="twitter:image:alt" content="sonar-scan — zero-configuration SonarQube code vulnerability scanner with retro terminal interface" />
@@ -59,7 +59,7 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "http://schema.org",
+      "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "sonar-scan",
       "operatingSystem": "Linux, macOS",
@@ -87,7 +87,10 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
     })} />
   </head>
   <body>
-    <slot />
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <main id="main-content">
+      <slot />
+    </main>
     <PostHog />
   </body>
 </html>
@@ -111,6 +114,26 @@ const siteUrl = 'https://sonar-scanner.elevatech.xyz';
     --text-dim: #6e7681;
     --radius: 12px;
     --radius-sm: 8px;
+  }
+
+  .skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    background: var(--neon-cyan);
+    color: #0d1117;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    text-decoration: none;
+    transition: top 0.15s;
+  }
+
+  .skip-to-content:focus {
+    top: 0;
   }
 
   *, *::before, *::after {
