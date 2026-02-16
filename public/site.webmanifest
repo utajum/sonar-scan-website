@@ -1,6 +1,6 @@
 {
-  "name": "Sonar-Scanner",
-  "short_name": "Sonar-Scanner",
+  "name": "Sonar-Scan",
+  "short_name": "Sonar-Scan",
   "description": "Zero-configuration SonarQube code vulnerability scanner",
   "start_url": "/",
   "display": "browser",

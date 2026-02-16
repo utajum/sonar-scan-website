@@ -1,8 +1,8 @@
-# Sonar-Scanner
+# Sonar-Scan
 
-Website for Sonar-Scanner - zero-configuration SonarQube code vulnerability scanner.
+Website for Sonar-Scan - zero-configuration SonarQube code vulnerability scanner.
 
-**[sonar-scanner.elevatech.xyz](https://sonar-scanner.elevatech.xyz)**
+**[sonar-scan.elevatech.xyz](https://sonar-scan.elevatech.xyz)**
 
 Built with [Astro](https://astro.build).
 
