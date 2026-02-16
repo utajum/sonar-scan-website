@@ -96,9 +96,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Run a scan</h3>
             <p>Scan the current directory for vulnerabilities.</p>
           </div>
-          <div class="usage-terminal" data-command="sonar-scan --scan">
+          <div class="usage-terminal" data-command="sonar-scan --scan" data-comment="# or -s">
             <div class="ut-bar"><span class="ut-dots"><i></i><i></i><i></i></span></div>
-            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="ut-cursor">_</span></code></div>
+            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="typed-comment"></span><span class="ut-cursor">_</span></code></div>
           </div>
         </div>
 
@@ -107,9 +107,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Scan specific directory</h3>
             <p>Point it at any project path on your system.</p>
           </div>
-          <div class="usage-terminal" data-command="sonar-scan /path/to/project">
+          <div class="usage-terminal" data-command="sonar-scan /path/to/project" data-comment="# or -t /path">
             <div class="ut-bar"><span class="ut-dots"><i></i><i></i><i></i></span></div>
-            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="ut-cursor">_</span></code></div>
+            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="typed-comment"></span><span class="ut-cursor">_</span></code></div>
           </div>
         </div>
 
@@ -118,9 +118,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Download issues</h3>
             <p>Export all detected issues to a structured JSON file.</p>
           </div>
-          <div class="usage-terminal" data-command="sonar-scan --download">
+          <div class="usage-terminal" data-command="sonar-scan --download" data-comment="# or -d">
             <div class="ut-bar"><span class="ut-dots"><i></i><i></i><i></i></span></div>
-            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="ut-cursor">_</span></code></div>
+            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="typed-comment"></span><span class="ut-cursor">_</span></code></div>
           </div>
         </div>
 
@@ -129,9 +129,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Quiet mode</h3>
             <p>Minimal output. Perfect for CI/CD pipelines.</p>
           </div>
-          <div class="usage-terminal" data-command="sonar-scan --quiet">
+          <div class="usage-terminal" data-command="sonar-scan --quiet" data-comment="# or -q">
             <div class="ut-bar"><span class="ut-dots"><i></i><i></i><i></i></span></div>
-            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="ut-cursor">_</span></code></div>
+            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="typed-comment"></span><span class="ut-cursor">_</span></code></div>
           </div>
         </div>
 
@@ -142,7 +142,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="usage-terminal" data-command="sonar-scan --delete-images">
             <div class="ut-bar"><span class="ut-dots"><i></i><i></i><i></i></span></div>
-            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="ut-cursor">_</span></code></div>
+            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="typed-comment"></span><span class="ut-cursor">_</span></code></div>
           </div>
         </div>
 
@@ -151,9 +151,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Help</h3>
             <p>Display all available commands and options.</p>
           </div>
-          <div class="usage-terminal" data-command="sonar-scan --help">
+          <div class="usage-terminal" data-command="sonar-scan --help" data-comment="# or -h">
             <div class="ut-bar"><span class="ut-dots"><i></i><i></i><i></i></span></div>
-            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="ut-cursor">_</span></code></div>
+            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="typed-comment"></span><span class="ut-cursor">_</span></code></div>
           </div>
         </div>
 
@@ -162,9 +162,9 @@ import Layout from '../layouts/Layout.astro';
             <h3>Version</h3>
             <p>Print the currently installed version.</p>
           </div>
-          <div class="usage-terminal" data-command="sonar-scan --version">
+          <div class="usage-terminal" data-command="sonar-scan --version" data-comment="# or -v">
             <div class="ut-bar"><span class="ut-dots"><i></i><i></i><i></i></span></div>
-            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="ut-cursor">_</span></code></div>
+            <div class="ut-body"><code><span class="prompt">$ </span><span class="typed-cmd"></span><span class="typed-comment"></span><span class="ut-cursor">_</span></code></div>
           </div>
         </div>
       </div>
@@ -407,13 +407,29 @@ import Layout from '../layouts/Layout.astro';
     }
 
     // Usage terminal typing animations
-    function typeCommand(el: HTMLElement, command: string, callback?: () => void) {
+    function typeCommand(el: HTMLElement, command: string, comment: string) {
       const cmdSpan = el.querySelector('.typed-cmd') as HTMLElement;
+      const commentSpan = el.querySelector('.typed-comment') as HTMLElement;
       const cursorSpan = el.querySelector('.ut-cursor') as HTMLElement;
       if (!cmdSpan || !cursorSpan) return;
 
       let i = 0;
+      let j = 0;
       cursorSpan.classList.remove('blink');
+
+      function typeComment() {
+        if (!comment || !commentSpan) {
+          cursorSpan.classList.add('blink');
+          return;
+        }
+        if (j < comment.length) {
+          commentSpan.textContent = comment.slice(0, j + 1);
+          j++;
+          setTimeout(typeComment, 25 + Math.random() * 20);
+        } else {
+          cursorSpan.classList.add('blink');
+        }
+      }
 
       function tick() {
         if (i < command.length) {
@@ -421,8 +437,13 @@ import Layout from '../layouts/Layout.astro';
           i++;
           setTimeout(tick, 35 + Math.random() * 40);
         } else {
-          cursorSpan.classList.add('blink');
-          if (callback) callback();
+          // Small pause then type the comment
+          if (comment) {
+            cmdSpan.textContent = command + '  ';
+            setTimeout(typeComment, 300);
+          } else {
+            cursorSpan.classList.add('blink');
+          }
         }
       }
       tick();
@@ -435,11 +456,12 @@ import Layout from '../layouts/Layout.astro';
           usageObserver.unobserve(entry.target);
           const el = entry.target as HTMLElement;
           const command = el.dataset.command || '';
+          const comment = el.dataset.comment || '';
           // Stagger based on position in grid
           const allTerminals = Array.from(usageTerminals);
           const idx = allTerminals.indexOf(el);
           setTimeout(() => {
-            typeCommand(el, command);
+            typeCommand(el, command, comment);
           }, idx * 150);
         }
       });
@@ -826,6 +848,11 @@ import Layout from '../layouts/Layout.astro';
 
   .typed-cmd {
     color: var(--neon-cyan);
+  }
+
+  .typed-comment {
+    color: var(--text-dim);
+    opacity: 0.5;
   }
 
   /* ── Features Grid ── */
