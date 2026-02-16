@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sonar-scanner.elevatech.xyz/sitemap-index.xml
