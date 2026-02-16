@@ -1,0 +1,76 @@
+<!-- What it does: screenshot showcase grid -->
+<section class="section section-dark">
+  <div class="container">
+    <h2>What it does</h2>
+    <p class="section-desc">Point it at any directory and walk away. sonar-scan handles SonarQube deployment, authentication, cleanup, scanning, and result delivery -- all automatically.</p>
+
+    <div class="showcase-grid">
+      <div class="showcase-item">
+        <img src="/screenshot-install.png" alt="One-line curl install with ASCII art install banner" loading="lazy" />
+        <h3>One-line install</h3>
+        <p>Pipe the installer from GitHub. It deploys <code>sonar-scan</code> to <code>/usr/local/bin</code> with zero friction.</p>
+      </div>
+      <div class="showcase-item">
+        <img src="/screenshot-scan.png" alt="Terminal showing scan progress with colored status messages" loading="lazy" />
+        <h3>Full scan pipeline</h3>
+        <p>Docker check, SonarQube deploy, auth, purge old data, scan, deliver results. All automated.</p>
+      </div>
+      <div class="showcase-item">
+        <img src="/screenshot-banner.png" alt="Interactive retro terminal menu with ASCII art" loading="lazy" />
+        <h3>Interactive menu</h3>
+        <p>Run without arguments for a retro-styled interactive menu. Choose scan, download issues, or exit.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .showcase-item {
+    text-align: center;
+  }
+
+  .showcase-item img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border-dark);
+  }
+
+  .showcase-item h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+    color: var(--text-primary);
+  }
+
+  .showcase-item p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .showcase-item code {
+    font-size: 0.82rem;
+    background: rgba(0, 255, 255, 0.1);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    color: var(--neon-cyan);
+  }
+
+  @media (max-width: 820px) {
+    .showcase-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+</style>
